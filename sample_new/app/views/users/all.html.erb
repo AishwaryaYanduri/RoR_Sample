@@ -1,0 +1,35 @@
+<div class="d-flex align-items-center justify-content-center">
+  <div class="col">
+    <div class="mb-3 d-flex justify-content-md-center">
+      <h3>Here you can see the list of users of organization.</h3>
+    </div>
+    <div class="mb-3 d-flex justify-content-md-end">
+      <button type="button" class="btn btn-primary" onclick="window.location.href='new_user'">Create New User</button>
+    </div>
+    <div class="row gx-5">
+      <table class="table table-hover">
+        <tr>
+          <th scope="col">Full Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Company</th>
+          <th scope="col">Mobile</th>
+        </tr>
+        <% @agents.each do |agent| %>
+          <tr class="table-primary">
+            <td class="mb-3"><%= agent.fullname %></td>
+            <td class="mb-3"><%= agent.email %></td>
+            <td class="mb-3"><%= agent.company %></td>
+            <td class="mb-3"><%= agent.mobile %></td>
+            <td><%= link_to "Edit", edit_user_path(agent) %></td>
+            <td><%= link_to "Delete", delete_user_path(agent), data: { confirm: "Are you sure to delete the user?" } %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+<table class="table table-hover"></table>
+
+
+
+

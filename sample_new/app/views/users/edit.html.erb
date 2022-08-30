@@ -1,0 +1,31 @@
+<div class="d-flex align-items-center justify-content-center">
+  <h1>Edit User</h1>
+</div>
+<%= form_for @agent, url: edit_user_path do |form| %>
+  <% if @agent.errors.any? %>
+    <div class="alert alert-danger">
+      <% @agent.errors.messages.each do |msg| %>
+        <div><%= msg %></div>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="mb-3">
+    <%= form.label :"Full Name:" %>
+    <%= form.text_field :fullname, class: "form-control", require: true, readonly: true %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :"Email:" %>
+    <%= form.text_field :email, class: "form-control", placeholder: "john.miller@dummytech.com", require: true, type: "email", readonly: true %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :"Company:" %>
+    <%= form.text_field :company, class: "form-control", placeholder: "Dummy Tech", require: true, readonly: true %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :"Mobile:" %>
+    <%= form.text_field :mobile, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.submit "Update User", class: "btn btn-primary" %>
+  </div>
+<% end %>
